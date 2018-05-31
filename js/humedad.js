@@ -69,7 +69,7 @@ Grafica: {
                         ticks: {
                             display: true,
                             beginAtZero: true,
-                            max: 20,
+                            max: 65,
                         }
                             }]
                 },
