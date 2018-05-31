@@ -23,15 +23,16 @@ firebase: {
     dbRef = firebase.database().ref().child('temp');
     dbRef.on('value', snap => vtemp = snap.val());
 }
-//------------------------------------VARIABLES-----------------------------------------------//
+//------------------------------------CONSTANTES-----------------------------------------------//
 
 intemp = Array.apply(null, Array(50)).map(Number.prototype.valueOf,0);//VALOR INICIAL TEMPERATURA DEL GRAFICO
 time = Array.apply(null, {length: 50}).map(Number.call, Number)//VECTOR TIEMPO
 
-//------------------------------------GRAFICA-----------------------------------------------//
+//------------------------------------GRAFICA TEMPERATURA-----------------------------------------------//
 Grafica: {
+    
     $(document).ready(function () {
-    time = Array.apply(null, {length: 50}).map(Number.call, Number)
+               
         var datos = {
             labels: time,
             datasets: [{
@@ -70,7 +71,7 @@ Grafica: {
                 responsive: true,
                 title: {
                     display: true,
-                    text: "Temperatura Cuarto"
+                    text: "Temperatura Cuarto en °C"
                 }
             }
         });
@@ -85,6 +86,8 @@ Grafica: {
             $.each(datos.datasets, function (i, dataset) {
                 dataset.data = newData[i];                
             });
+            document.getElementById('temperaturamax').innerHTML = Math.max(...vtemp);
+            document.getElementById('temperaturamin').innerHTML = Math.min(...vtemp);
             window.line.update();
         }, 1500);
 

@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav">
-                <h1>Domotica</h1>
+                <h1>Dashboard</h1>
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#section2">Temperatura</a></li>
                     <li><a href="#section3">Humedad</a></li>
@@ -28,30 +28,37 @@
             </div>
 
             <div class="col-sm-9">
-                <div class="col-sm-2 text-center">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Temperatura Medellin</div>
-                        <div class="panel-body" id="temperatura"></div>
+                <div class="col-sm-12 text-center mx-4">
+                    <div class="col-sm-3 text-center col-lg-offset-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Temperatura Medellin</div>
+                            <div class="panel-body" id="temperatura"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Temperatura Cuarto</div>
+                            <div class="panel-body" id="humedad"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-2 text-center">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Temperatura Cuarto</div>
-                        <div class="panel-body" id="humedad"></div>
-                    </div>
-                </div>
-                
-                <h1>Sensores</h1>
-                <span>Temperatura: </span>
-                <span id="temperatura"></span><br>
-                <span>Humedad: </span>
-                <span id="humedad"></span>
-                <h1>Luces</h1>
-                <span>LED1: </span>
-                <span id="led"></span>
 
                 <div class="canvas-container" style="width: 100%">
                     <canvas id="chart" width="1000" height="400"></canvas>
+                </div>
+                <div class="col-sm-12 text-center mx-4">
+                    <div class="col-sm-3 text-center col-lg-offset-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Temperatura Máxima</div>
+                            <div class="panel-body" id="temperaturamax"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">Temperatura Mínima</div>
+                            <div class="panel-body" id="temperaturamin"></div>
+                        </div>
+                    </div>
                 </div>
 
 
