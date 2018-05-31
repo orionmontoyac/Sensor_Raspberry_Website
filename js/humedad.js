@@ -27,16 +27,13 @@ firebase: {
     firebase.initializeApp(config);
 
     //LLamado de variable desde FireBase
-    var temp = document.getElementById('temperatura');
-    var dbRef = firebase.database().ref().child('Temperatura');
-    dbRef.on('value', snap => temp.innerText = snap.val().concat('°C'));
 
     var hume = document.getElementById('humedad');
     dbRef = firebase.database().ref().child('Humedad');
-    dbRef.on('value', snap => hume.innerText = snap.val().concat('°C'));
+    dbRef.on('value', snap => hume.innerText = snap.val().concat(''));
 
     var vtemp;
-    dbRef = firebase.database().ref().child('temp');
+    dbRef = firebase.database().ref().child('hume');
     dbRef.on('value', snap => vtemp = snap.val());
 }
 //------------------------------------CONSTANTES-----------------------------------------------//
@@ -51,8 +48,8 @@ Grafica: {
         var datos = {
             labels: time,
             datasets: [{
-                label: "Temperatura",
-                backgroundColor: "rgba(235, 101, 18, 0.7)",
+                label: "Humedad",
+                backgroundColor: "rgba(27, 222, 102, 0.7)",
                 data: intemp
 			}]
         };
@@ -72,24 +69,19 @@ Grafica: {
                         ticks: {
                             display: true,
                             beginAtZero: true,
-                            max: 10,
+                            max: 20,
                         }
                             }]
-                },
-                elements: {
-                    rectangle: {
-                        borderWidth: 1,
-                        borderColor: "rgb(0,255,0)",
-                        borderSkipped: 'bottom'
-                    }
                 },
                 responsive: true,
                 title: {
                     display: true,
-                    text: "Temperatura Cuarto en °C"
+                    text: "Humedad en el Cuarto en %"
                 }
             }
         });
+
+//------------------------------------GRAFICA ACTUALIZAR---------------------------------------//     
 
         setInterval(function () {
             
@@ -101,16 +93,13 @@ Grafica: {
             $.each(datos.datasets, function (i, dataset) {
                 dataset.data = newData[i];                
             });
-            document.getElementById('temperaturamax').innerText = Math.max(...vtemp).toString().concat('°C');//TEMPERATURA MAXIMA
-            document.getElementById('temperaturamin').innerText = Math.min(...vtemp).toString().concat('°C');//TEMPERATURA MINIMA
-            document.getElementById('temperaturapromedio').innerText = (sum(vtemp)/vtemp.length).toString().concat('°C');//TEMPERATURA PROMEDIO
+            document.getElementById('temperaturamax').innerText = Math.max(...vtemp).toString().concat('%');//HUMEDAD MAXIMA
+            document.getElementById('temperaturamin').innerText = Math.min(...vtemp).toString().concat('%');//HUMEDAD MINIMA
+            document.getElementById('temperaturapromedio').innerText = Math.round((sum(vtemp)/vtemp.length),-1).toString().concat('%');//HUMEDAD PROMEDIO
+            document.getElementById('humedadcuarto').innerText = vtemp[vtemp.length - 1].toString().concat('%');
             window.line.update();
         }, 1500);
-
-        function getRandom() {
-
-            return Math.round(Math.random() * 100);
-        }
+        
     });
 
 }

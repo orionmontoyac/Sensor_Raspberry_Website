@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Temperatura</title>
+    <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,8 +21,8 @@
             <div class="col-sm-2 sidenav">
                 <h1>Dashboard</h1>
                 <ul class="nav nav-pills nav-stacked ">
-                    <li class="active"><a href="temperatura.html">Temperatura</a></li>
-                    <li><a href="humedad.html">Humedad</a></li>
+                    <li><a href="temperatura.html">Temperatura</a></li>
+                    <li class="active"><a href="humedad.html">Humedad</a></li>
                     <li><a href="#section3">Luces</a></li>
                 </ul><br>
             </div>
@@ -30,14 +30,14 @@
                 <div class="col-sm-12 text-center mx-4">
                     <div class="col-sm-3 text-center col-lg-offset-3">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Temperatura Medellin</div>
-                            <div class="panel-body" id="temperatura"></div>
+                            <div class="panel-heading">Humedad Medellin</div>
+                            <div class="panel-body" id="humedad"></div>
                         </div>
                     </div>
                     <div class="col-sm-3 text-center">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Temperatura Cuarto</div>
-                            <div class="panel-body" id="temperaturacuarto"></div>
+                            <div class="panel-heading">Humedad Cuarto</div>
+                            <div class="panel-body" id="humedadcuarto"></div>
                         </div>
                     </div>
                 </div>
@@ -49,19 +49,19 @@
                 <div class="col-sm-12 text-center">
                     <div class="col-sm-3 text-center col-lg-offset-2">
                         <div class="panel panel-danger">
-                            <div class="panel-heading">Temperatura Máxima</div>
+                            <div class="panel-heading">Humedad Máxima</div>
                             <div class="panel-body" id="temperaturamax"><span>°C</span></div>
                         </div>
                     </div>
                     <div class="col-sm-3 text-center">
                         <div class="panel panel-success">
-                            <div class="panel-heading">Temperatura Mínima</div>
+                            <div class="panel-heading">Humedad Mínima</div>
                             <div class="panel-body" id="temperaturamin"></div>
                         </div>
                     </div>
                     <div class="col-sm-3 text-center">
                         <div class="panel panel-info">
-                            <div class="panel-heading">Temperatura Promedio</div>
+                            <div class="panel-heading">Humedad Promedio</div>
                             <div class="panel-body" id="temperaturapromedio"></div>
                         </div>
                     </div>
@@ -75,5 +75,5 @@
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-<script src="js/temperatura.js" type="text/javascript"></script>
+<script src="js/humedad.js" type="text/javascript"></script>
 </html>
