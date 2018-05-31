@@ -1,3 +1,19 @@
+//------------------------------------FUNCIONES-----------------------------------------------//
+function sum(input){
+             
+ if (toString.call(input) !== "[object Array]")
+    return false;
+      
+            var total =  0;
+            for(var i=0;i<input.length;i++)
+              {                  
+                if(isNaN(input[i])){
+                continue;
+                 }
+                  total += Number(input[i]);
+               }
+             return total;
+            }
 //------------------------------------FIREBASE-----------------------------------------------//
 firebase: {
     var config = {
@@ -13,11 +29,11 @@ firebase: {
     //LLamado de variable desde FireBase
     var temp = document.getElementById('temperatura');
     var dbRef = firebase.database().ref().child('Temperatura');
-    dbRef.on('value', snap => temp.innerText = snap.val());
+    dbRef.on('value', snap => temp.innerText = snap.val().concat('°C'));
 
     var hume = document.getElementById('humedad');
     dbRef = firebase.database().ref().child('Humedad');
-    dbRef.on('value', snap => hume.innerText = snap.val());
+    dbRef.on('value', snap => hume.innerText = snap.val().concat('°C'));
 
     var vtemp;
     dbRef = firebase.database().ref().child('temp');
@@ -28,11 +44,10 @@ firebase: {
 intemp = Array.apply(null, Array(50)).map(Number.prototype.valueOf,0);//VALOR INICIAL TEMPERATURA DEL GRAFICO
 time = Array.apply(null, {length: 50}).map(Number.call, Number)//VECTOR TIEMPO
 
-//------------------------------------GRAFICA TEMPERATURA-----------------------------------------------//
-Grafica: {
-    
+
+Grafica: {    
     $(document).ready(function () {
-               
+//------------------------------------GRAFICA TEMPERATURA---------------------------------------//     
         var datos = {
             labels: time,
             datasets: [{
@@ -86,8 +101,9 @@ Grafica: {
             $.each(datos.datasets, function (i, dataset) {
                 dataset.data = newData[i];                
             });
-            document.getElementById('temperaturamax').innerHTML = Math.max(...vtemp);
-            document.getElementById('temperaturamin').innerHTML = Math.min(...vtemp);
+            document.getElementById('temperaturamax').innerText = Math.max(...vtemp).toString().concat('°C');//TEMPERATURA MAXIMA
+            document.getElementById('temperaturamin').innerText = Math.min(...vtemp).toString().concat('°C');//TEMPERATURA MINIMA
+            document.getElementById('temperaturapromedio').innerText = (sum(vtemp)/vtemp.length).toString().concat('°C');//TEMPERATURA PROMEDIO
             window.line.update();
         }, 1500);
 
@@ -95,7 +111,6 @@ Grafica: {
 
             return Math.round(Math.random() * 100);
         }
-
     });
 
 }
