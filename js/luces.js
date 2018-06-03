@@ -43,17 +43,24 @@ function changeColorLed() {
         document.getElementById("b2").style.color = 'yellow';
     }
 }
-function comandButton(){
-    console.log("click");
-    
+function comandButton1(){    
+    if (led1text == "Encender") {
+        firebase.database().ref().child('/').update({ led1: "Apagar"});
+    } else {
+        firebase.database().ref().child('/').update({ led1: "Encender"});
+    }    
+}
+function comandButton2(){    
+    if (led2text == "Encender") {
+        firebase.database().ref().child('/').update({ led2: "Apagar"});
+    } else {
+        firebase.database().ref().child('/').update({ led2: "Encender"});
+    }    
 }
 $(document).ready(function () {
     var btn = document.getElementsByTagName('button');
-    var i = 0;
-    while (i < btn.length){//Botones a mostrar en display
-        btn[i].onclick = comandButton;
-        i = i+1;
-    }
-    setInterval(changeColorLed, 1500);
+    btn[0].onclick = comandButton1;
+    btn[1].onclick = comandButton2;
+    setInterval(changeColorLed, 1000);
 
 });
