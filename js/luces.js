@@ -1,0 +1,59 @@
+//------------------------------------FIREBASE-----------------------------------------------//
+firebase: {
+    var config = {
+        apiKey: "AIzaSyBGp1IPS8XDTo0h2ZqPT13dTL3LCLbC-2k",
+        authDomain: "final-web-222da.firebaseapp.com",
+        databaseURL: "https://final-web-222da.firebaseio.com",
+        projectId: "final-web-222da",
+        storageBucket: "final-web-222da.appspot.com",
+        messagingSenderId: "661696090115"
+    };
+    firebase.initializeApp(config);
+
+    //LLamado de variable desde FireBase
+    var led1 = document.getElementById('led1');
+    var dbRef = firebase.database().ref().child('led1');
+    dbRef.on('value', snap => led1.innerText = snap.val().concat(''));
+
+    var led2 = document.getElementById('led2');
+    var dbRef = firebase.database().ref().child('led2');
+    dbRef.on('value', snap => led2.innerText = snap.val().concat(''));
+
+    var led1text;
+    dbRef = firebase.database().ref().child('led1');
+    dbRef.on('value', snap => led1text = snap.val());
+
+
+    var led2text;
+    dbRef = firebase.database().ref().child('led2');
+    dbRef.on('value', snap => led2text = snap.val());
+    console.log(led1text);
+
+}
+
+function changeColorLed() {
+    if (led1text == "Encender") {
+        document.getElementById("b1").style.color = 'black';
+    } else {
+        document.getElementById("b1").style.color = 'yellow';
+    }
+    if (led2text == "Encender") {
+        document.getElementById("b2").style.color = 'black';
+    } else {
+        document.getElementById("b2").style.color = 'yellow';
+    }
+}
+function comandButton(){
+    console.log("click");
+    
+}
+$(document).ready(function () {
+    var btn = document.getElementsByTagName('button');
+    var i = 0;
+    while (i < btn.length){//Botones a mostrar en display
+        btn[i].onclick = comandButton;
+        i = i+1;
+    }
+    setInterval(changeColorLed, 1500);
+
+});
