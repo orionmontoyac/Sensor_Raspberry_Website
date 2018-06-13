@@ -44,7 +44,7 @@ time = Array.apply(null, {length: 50}).map(Number.call, Number)//VECTOR TIEMPO
 
 Grafica: {    
     $(document).ready(function () {
-//------------------------------------GRAFICA TEMPERATURA---------------------------------------//     
+//------------------------------------GRAFICA HUMEDAD---------------------------------------//     
         var datos = {
             labels: time,
             datasets: [{
