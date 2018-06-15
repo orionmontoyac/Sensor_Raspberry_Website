@@ -14,6 +14,13 @@ function sum(input){
                }
              return total;
             }
+function sendMail() {
+    var link = "orion.montoya@udea.edu.co"             
+             + "&subject=" + escape("This is my subject")
+             + "&body=" + escape('Alerta_de_temperatura_alta')
+    ;
+    window.location.href = link;
+}
 //------------------------------------FIREBASE-----------------------------------------------//
 firebase: {
     var config = {
@@ -96,7 +103,9 @@ Grafica: {
             document.getElementById('temperaturamin').innerText = Math.min(...vtemp).toString().concat('°C');//TEMPERATURA MINIMA
             document.getElementById('temperaturapromedio').innerText = Math.round((sum(vtemp)/vtemp.length),-1).toString().concat('°C');//TEMPERATURA PROMEDIO
             document.getElementById('temperaturacuarto').innerText = vtemp[vtemp.length - 1].toString().concat('°C');
-
+            if(vtemp[vtemp.length - 1]>40){
+               alert('Alerta temperatura');                
+               }
             window.line.update();
         }, 1500);
         

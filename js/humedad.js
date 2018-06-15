@@ -98,6 +98,11 @@ Grafica: {
             document.getElementById('temperaturapromedio').innerText = Math.round((sum(vtemp)/vtemp.length),-1).toString().concat('%');//HUMEDAD PROMEDIO
             document.getElementById('humedadcuarto').innerText = vtemp[vtemp.length - 1].toString().concat('%');
             window.line.update();
+            
+            if(vtemp[vtemp.length - 1]>90){
+               alert('Alerta humedad');                
+               }
+            
         }, 1500);
         
     });
