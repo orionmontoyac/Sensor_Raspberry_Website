@@ -105,7 +105,8 @@ textarea {
 .row.content {
     height: 700px
 }
-
+.panel-primary a{color: white}
+.panel-primary a:hover{color: white}
 /* Set gray background color and 100% height */
 
 .sidenav {
