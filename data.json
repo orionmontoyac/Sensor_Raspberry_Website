@@ -4,22 +4,22 @@
         {
             "dKeyEnum": "devoluciones en ventas",
             "value": "30.854.000",
-            "certain": 79
+            "certain": 60
         },
         {
             "dKeyEnum": "total ingresos",
             "value": " 7.074.62::.000",
-            "certain": 64
+            "certain": 50
         },
         {
             "dKeyEnum": "costos de ventas",
-            "value": " 5.864.876.000",
-            "certain": 67
+            "value": " 5864.876.000",
+            "certain": 59
         },
         {
             "dKeyEnum": "total gastos de administracion",
-            "value": "485.370.000",
-            "certain": 53
+            "value": "486.975.000",
+            "certain": 95
         }
     ]
 }
